@@ -1,0 +1,28 @@
+{
+  "competition": "oc-router",
+  "artifact": "submission/",
+  "weight_class": {"name": "tiny", "max_weights_bytes": 25000000, "note": "must load and run on a single 24GB GPU inside the pinned runtime image"},
+  "eval": {
+    "pool_version": "pool.dev@v1",
+    "split": "dev",
+    "seed": 1,
+    "budget": {"max_turns": 5, "max_tokens": 4000},
+    "cost_tolerance": 1.10,
+    "latency_tolerance": 1.25,
+    "significance_alpha": 0.05
+  },
+  "gittensor_repo_config": {
+    "weight": 0.5,
+    "trusted_label_pipeline": true,
+    "label_multipliers": {"champion": 1.0, "runner-up": 0.15},
+    "default_label_multiplier": 0.0,
+    "fixed_base_score": 1.0
+  },
+  "miner_limits": {
+    "prs_per_24h_per_hotkey": 1,
+    "open_prs_per_hotkey": 1,
+    "new_pr_resets_cooldown": true,
+    "credibility_floor_for_banlist": 0.1
+  },
+  "reset_window": "monday 00:00 UTC — all pin bumps, split rotations and pool bumps batch here"
+}

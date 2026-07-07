@@ -1,0 +1,40 @@
+{
+ "manifest_sha256": "cf691c7d43fb9891ea85affd4d21fe8a188c1b1b6b530ec4801d628cbf27611f",
+ "split": "dev",
+ "seed": 1,
+ "n_tasks": 120,
+ "verdict": {
+  "passed": true,
+  "reason": "significant accuracy gain within cost/latency bands",
+  "comparison": {
+   "p_value": 7.62939453125e-05,
+   "wins": 18,
+   "losses": 1,
+   "delta": 0.14166666666666666,
+   "ci_low": 0.08333333333333333,
+   "ci_high": 0.20833333333333334
+  },
+  "candidate": {
+   "accuracy": 0.9583333333333334,
+   "per_suite": {
+    "reasoning": 1.0,
+    "math": 0.95,
+    "code_qa": 0.925
+   },
+   "cost_per_task": 0.03686583333333334,
+   "latency_p50_ms": 1.7432189924875274
+  },
+  "baseline": {
+   "accuracy": 0.8166666666666668,
+   "per_suite": {
+    "reasoning": 0.775,
+    "math": 0.75,
+    "code_qa": 0.925
+   },
+   "cost_per_task": 0.0369,
+   "latency_p50_ms": 1.8980890017701313
+  },
+  "oracle_capture": 0.8095238095238095
+ },
+ "mde": 0.1278
+}

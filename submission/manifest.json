@@ -1,0 +1,10 @@
+{
+ "arch": "tiny-linear",
+ "weights_file": "weights.json",
+ "weights_sha256": "2c2898146f26ab12edf6f6eecc52c6aadcd47215f2d3e6d05230d2f1130cdba8",
+ "size_bytes": 27256,
+ "trained_on": {
+  "split": "dev",
+  "seed": 1
+ }
+}
