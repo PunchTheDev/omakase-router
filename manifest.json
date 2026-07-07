@@ -13,7 +13,7 @@
   "docs/trust-and-verification.md": "1a7e0a4d10ff7815fdf7dcbbabc57a0f37fac33ec4e9c3e487ef54a491b04731",
   "oc-router.config.json": "c7d9d5e8e6c87017c8b57afd46d35ba76681202baaca487491091d480790a43e",
   "payload-schema.json": "9fb3a1c0c437991547b214824181bfdafb8ef5deda68069560140006ee02417d",
-  "scripts/check_submission.py": "a6374110b41c936c4aaa5f657ba57533be425fd3a5935fd643261e6e48a37f5f",
+  "scripts/check_submission.py": "b710ccbae04c6a0cb6ac08d30b64f9e0dc130e3e8c0c76f14cbd669aa883f4d1",
   "scripts/gen_manifest.py": "29fc6f53f3f98188035c11a1fa0011c79881009dff697c903ae5ae06981951fe",
   "scripts/self_score.sh": "aadae5d7fe85e2a26f29d3c63070ac9d726fde2a3cebc46d7dbd6872a85af8b5",
   "scripts/train_seed.py": "9f776bdd5fe4efc9e4ffcbbb94a518785ea3088982e12103124ebd4fb91b3a6a"
