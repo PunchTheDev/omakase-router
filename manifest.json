@@ -1,0 +1,21 @@
+{
+ "locked": {
+  ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+  "AGENTS.md": "bcaf5d9526d60434a2e575f135f91d408a4fe086833b87f637b1ecb8383cf27a",
+  "CLAUDE.md": "bcaf5d9526d60434a2e575f135f91d408a4fe086833b87f637b1ecb8383cf27a",
+  "MINER-AGENT.md": "bdcbe9312ed751138a2dc8949010381c8aea942ce0fd2a908c2113d3a9ef7a53",
+  "README.md": "712c67dd731c3195c5f0f8a6d9dc555e2e43cfad3714205a914473f3f053ef37",
+  "docs/changelog.md": "02ead35de4f10fd68c321d294cfe551463361d4f570b77c1005949ea84283e43",
+  "docs/faq.md": "59e78df572cc5c15bcfcc192e8863889e6c09c60f826bb9a7a953d800675923c",
+  "docs/how-it-works.md": "49183ca6ba706953405bfc78d6444461dfde6bbd03ef0516e2ca9f69308ba007",
+  "docs/quickstart.md": "49402328c5b0d0a63228366ad3a9f47c78004951f2ec649659a77c485512b36c",
+  "docs/rules-and-rewards.md": "00e005fddbdbde5663b3b6adb5a933109fafc2ddeb46f8d2810b70deb0ee29cf",
+  "docs/trust-and-verification.md": "1a7e0a4d10ff7815fdf7dcbbabc57a0f37fac33ec4e9c3e487ef54a491b04731",
+  "oc-router.config.json": "c7d9d5e8e6c87017c8b57afd46d35ba76681202baaca487491091d480790a43e",
+  "payload-schema.json": "9fb3a1c0c437991547b214824181bfdafb8ef5deda68069560140006ee02417d",
+  "scripts/check_submission.py": "a6374110b41c936c4aaa5f657ba57533be425fd3a5935fd643261e6e48a37f5f",
+  "scripts/gen_manifest.py": "29fc6f53f3f98188035c11a1fa0011c79881009dff697c903ae5ae06981951fe",
+  "scripts/self_score.sh": "aadae5d7fe85e2a26f29d3c63070ac9d726fde2a3cebc46d7dbd6872a85af8b5",
+  "scripts/train_seed.py": "9f776bdd5fe4efc9e4ffcbbb94a518785ea3088982e12103124ebd4fb91b3a6a"
+ }
+}
