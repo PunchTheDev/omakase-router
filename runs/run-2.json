@@ -26,7 +26,7 @@
     "number_theory": 0.975
    },
    "cost_per_task": 0.036764,
-   "latency_p50_ms": 0.6116659933468327
+   "latency_p50_ms": 0.7468789990525693
   },
   "baseline": {
    "accuracy": 0.9199999999999999,
@@ -38,11 +38,11 @@
     "number_theory": 0.975
    },
    "cost_per_task": 0.036764,
-   "latency_p50_ms": 0.7496550097130239
+   "latency_p50_ms": 0.6592949939658865
   },
   "oracle_capture": 0.0
  },
- "transcript_sha256": "4a243729220160f96f0b29da950948af473839c8e9bdd001e4e1fb0f34bfb259",
+ "transcript_sha256": "6234746e691dad2fea67c7bfa6b444174ff44f73fc4b13432abf59af5c910307",
  "pr": 2,
  "task_summary": [
   {
