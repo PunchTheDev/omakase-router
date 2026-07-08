@@ -1,4 +1,4 @@
-# omakase-router — the OC-R orchestrator competition
+# omakase-router — the Router orchestrator competition
 
 Submit a tiny router (weights only) that decides which pool worker handles each
 task. Beat the champion with statistical significance, take the crown, stream

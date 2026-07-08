@@ -1,5 +1,5 @@
 {
-  "$comment": "The single fenced JSON block every OC-R PR body must contain. Everything else in the body is decoration with zero authority.",
+  "$comment": "The single fenced JSON block every Router PR body must contain. Everything else in the body is decoration with zero authority.",
   "type": "object",
   "required": ["competition", "hotkey", "github_login", "weights_sha256", "self_score", "signature"],
   "additionalProperties": false,

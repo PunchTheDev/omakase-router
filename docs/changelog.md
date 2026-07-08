@@ -1,6 +1,6 @@
 # Changelog / resets
 
-All resets (split rotations, pool bumps, router-pin bumps in OC-H) are
+All resets (split rotations, pool bumps, router-pin bumps in Harness) are
 announced here before the Monday 00:00 UTC reset window they land in.
 
 ## 2026-07-08 — maintainer agent live (Punch)
@@ -9,23 +9,23 @@ announced here before the Monday 00:00 UTC reset window they land in.
   registration (Gate 1), walks locked-files/artifact gates, runs the canonical
   rerun, and enforces rate-limit / open-PR / credibility / banlist (not just
   config). Winning entries are ed25519-signed in the ledger.
-- King-of-the-hill made exact: OC-R now requires beating the **current
+- King-of-the-hill made exact: Router now requires beating the **current
   champion** with paired significance, not just the best single worker.
 - Every run publishes a full **per-task transcript** (audit any problem at
   `/runs/<sha>/tasks`), and a read API (`/api/runs/...`) exposes it.
 - Weights storage: real Hippius S3 client + encrypt-until-merge (activates with
   console credentials); local content-addressed store for dev.
 
-## 2026-07-07 — pool retune (pool.dev@v2) + OC-H contract v2
+## 2026-07-07 — pool retune (pool.dev@v2) + Harness contract v2
 
 - Pool skills moderated + hedging confidence channel added (ignorant workers
   hedge 50% — the signal harness engineering exploits). Competition reset;
   champion retrained: 0.925, oracle capture 0.72.
-- OC-H scoring contract v2: harnesses receive redacted task views, grading and
+- Harness scoring contract v2: harnesses receive redacted task views, grading and
   cost metering are central, budgets enforced by the pool wrapper. Honest
   harnesses unaffected (main rescored unchanged at 0.933).
-- OC-H gate split widened to 450 tasks (MDE ↓); champion-v2 router pinned.
-- First OC-H merge: hedge-aware retry, Δ+3.6pp, p=3.1e-05 → major-delta.
+- Harness gate split widened to 450 tasks (MDE ↓); champion-v2 router pinned.
+- First Harness merge: hedge-aware retry, Δ+3.6pp, p=3.1e-05 → major-delta.
 
 ## 2026-07-07 — competition genesis
 

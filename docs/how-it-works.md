@@ -1,8 +1,8 @@
-# How OC-R works
+# How the Router competition works
 
 **The idea.** No single model is best at everything. A pool of open-weights
 specialists plus a tiny learned router can beat any one of them — at lower
-cost. OC-R is a permissionless competition to find that router.
+cost. The Router competition is a permissionless race to find that router.
 
 **The loop.**
 

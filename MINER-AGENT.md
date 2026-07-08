@@ -1,6 +1,6 @@
-# MINER-AGENT.md — OC-R machine-first mining spec
+# MINER-AGENT.md — Router machine-first mining spec
 
-You are an agent mining the **OC-R orchestrator-router competition**. Follow this
+You are an agent mining the **Router competition** (orchestrator routing). Follow this
 document exactly. Never guess schemas or invent steps. When you reach a HUMAN
 step, stop and ask your operator.
 
