@@ -1,4 +1,4 @@
-# oc-router — the OC-R orchestrator competition
+# omakase-router — the OC-R orchestrator competition
 
 Submit a tiny router (weights only) that decides which pool worker handles each
 task. Beat the champion with statistical significance, take the crown, stream
@@ -16,5 +16,5 @@ scripts/check_submission.py    # gates 1-3 preflight
 ```
 
 Locked surface: everything except `submission/` and `runs/` (enforced by
-`manifest.json`). Eval mechanics live in [oc-eval](../oc-eval); the sibling
-harness competition is [oc-harness](../oc-harness).
+`manifest.json`). Eval mechanics live in [omakase-eval](../omakase-eval); the sibling
+harness competition is [omakase-harness](../omakase-harness).

@@ -10,8 +10,8 @@ proves what ran and lets you re-run it.
 
 | Property | Mechanism | Verify it yourself |
 |---|---|---|
-| The run wasn't altered | maintainer **ed25519 signature** over the ledger entry's chain hash | recompute with the published pubkey (`oc-maintainer/state/maintainer.pub.json`) |
-| History wasn't rewritten | frontier log: append-only, **hash-chained**; each entry commits to the last | `oc-eval verify-log runs/frontier.jsonl` |
+| The run wasn't altered | maintainer **ed25519 signature** over the ledger entry's chain hash | recompute with the published pubkey (`omakase-maintainer/state/maintainer.pub.json`) |
+| History wasn't rewritten | frontier log: append-only, **hash-chained**; each entry commits to the last | `omakase-eval verify-log runs/frontier.jsonl` |
 | What the router did on every problem | the **per-task transcript** (each worker call, role, response, tokens, grading) is published and content-addressed | open `/runs/<sha>/tasks` or `GET /api/runs/<sha>/tasks` |
 | The score is real | re-run from source: same split, same seed, same pool ⇒ same verdict | the reproduce command on each receipt |
 | Only your artifact was scored | `manifest_sha256` / `weights_sha256` bound into the run + ledger entry | compare to your submission |
@@ -27,22 +27,22 @@ proves what ran and lets you re-run it.
 2. **The worker pool serves what it claims.** Worker responses come from the
    pinned pool. The serving config is recorded; a degraded pool health-gates
    the queue rather than scoring. In dev the pool is a deterministic mock (a
-   trusted component — see `oc-eval/oc_eval/mockpool.py`); production points at
+   trusted component — see `omakase-eval/omakase_eval/mockpool.py`); production points at
    pinned vLLM endpoints over an egress allow-list.
 
 ## Verify a run yourself
 
 ```bash
 # 1. the ledger chain is intact
-oc-eval verify-log oc-router/runs/frontier.jsonl
+omakase-eval verify-log omakase-router/runs/frontier.jsonl
 
 # 2. the maintainer signature on any entry checks out (ed25519 over the entry sha)
 #    — the dashboard does this live; the pubkey is published in the maintainer state
 
 # 3. reproduce the verdict bit-for-bit
-oc-eval mockpool --port 8100 &
-oc-eval baselines --pool ../oc-eval/configs/pool.dev.json --out /tmp/base.json
-oc-eval run --manifest submission/manifest.json --pool ../oc-eval/configs/pool.dev.json \
+omakase-eval mockpool --port 8100 &
+omakase-eval baselines --pool ../omakase-eval/configs/pool.dev.json --out /tmp/base.json
+omakase-eval run --manifest submission/manifest.json --pool ../omakase-eval/configs/pool.dev.json \
         --baselines /tmp/base.json --split dev --seed 1
 
 # 4. audit any problem: open /runs/<transcript_sha>/tasks/<task_id> on the dashboard
@@ -54,7 +54,7 @@ re-run is published whichever way it lands.
 
 ## Why cheating is negative-EV
 
-- **Identity is real.** Peggy verifies the sr25519 hotkey signature over your
+- **Identity is real.** Punch verifies the sr25519 hotkey signature over your
   payload and that the hotkey is registered and GitHub-bound before any compute
   runs (Gate 1). A forged signature or unregistered hotkey is closed for free.
 - **King of the hill.** Your router must beat the *current champion* with paired

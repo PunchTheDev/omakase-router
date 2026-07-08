@@ -1,5 +1,5 @@
 {
-  "competition": "oc-router",
+  "competition": "omakase-router",
   "artifact": "submission/",
   "weight_class": {"name": "tiny", "max_weights_bytes": 25000000, "note": "must load and run on a single 24GB GPU inside the pinned runtime image"},
   "eval": {

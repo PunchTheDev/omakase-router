@@ -4,7 +4,7 @@
   "required": ["competition", "hotkey", "github_login", "weights_sha256", "self_score", "signature"],
   "additionalProperties": false,
   "properties": {
-    "competition": {"const": "oc-router"},
+    "competition": {"const": "omakase-router"},
     "hotkey": {"type": "string", "minLength": 46, "maxLength": 50},
     "github_login": {"type": "string"},
     "weights_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},

@@ -1,5 +1,5 @@
 {
- "competition": "oc-router",
+ "competition": "omakase-router",
  "manifest_sha256": "3cb5250c8d28e3fbf5a71082445504f95bf9e90622478e3fd363d1b031309555",
  "split": "dev",
  "seed": 1,
@@ -24,7 +24,7 @@
     "code_qa": 0.875
    },
    "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.6506689969683066
+   "latency_p50_ms": 0.750316001358442
   },
   "baseline": {
    "accuracy": 0.9249999999999999,
@@ -34,11 +34,11 @@
     "code_qa": 0.875
    },
    "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.6961840117583051
+   "latency_p50_ms": 0.7453159923898056
   },
   "oracle_capture": 0.0
  },
- "transcript_sha256": "c5f01670ab4f45a7700e7a25854f17229b462e18ed0375f30b080d8f3ecf19d6",
+ "transcript_sha256": "88eea6a753f7b004d3d8cf3809f6faf5ba62dafd2fa2cfd6376b657b5515bba2",
  "pr": 2,
  "task_summary": [
   {

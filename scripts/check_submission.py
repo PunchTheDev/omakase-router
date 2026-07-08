@@ -3,7 +3,7 @@
 
 Checks: payload shape (Gate 1 surface), locked-file integrity vs main:manifest.json
 (Gate 2), artifact sanity — sha/size/arch/entropy (Gate 3 static pass).
-Exit 0 = submit; nonzero = the printed reason is what Peggy would reject with.
+Exit 0 = submit; nonzero = the printed reason is what Punch would reject with.
 """
 from __future__ import annotations
 
@@ -15,9 +15,9 @@ import subprocess
 import sys
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
-sys.path.insert(0, os.path.join(ROOT, "..", "oc-eval"))
+sys.path.insert(0, os.path.join(ROOT, "..", "omakase-eval"))
 
-from oc_eval import routers  # noqa: E402
+from omakase_eval import routers  # noqa: E402
 
 MIN_WEIGHT_ENTROPY = 0.5  # a lookup-table router concentrates mass on one worker
 UNLOCKED_PREFIXES = ("submission/", "runs/")

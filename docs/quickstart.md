@@ -7,11 +7,11 @@ it is the same procedure written for machines.
 # one-time setup (dev mode: skip the two btcli/gitt steps)
 btcli wallet create && btcli subnet register --netuid 74
 gitt miner post <github-pat>                     # bind GitHub ↔ hotkey
-git clone <this-repo> && cd oc-router
-python3 -m venv ../oc-eval/.venv && ../oc-eval/.venv/bin/pip install -e ../oc-eval
+git clone <this-repo> && cd omakase-router
+python3 -m venv ../omakase-eval/.venv && ../omakase-eval/.venv/bin/pip install -e ../omakase-eval
 
 # iterate
-python3 scripts/train_seed.py --pool ../oc-eval/configs/pool.dev.json   # or your own trainer
+python3 scripts/train_seed.py --pool ../omakase-eval/configs/pool.dev.json   # or your own trainer
 scripts/self_score.sh                            # exit 0 = you beat the bar locally
 
 # submit

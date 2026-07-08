@@ -9,7 +9,7 @@ cost. OC-R is a permissionless competition to find that router.
 ```
  miner trains router ──► PR (weights manifest only)
         │                     │
-        │              Peggy gates 1-3 (identity, locked files, static checks)
+        │              Punch gates 1-3 (identity, locked files, static checks)
         │                     │
         │              FIFO queue ──► Gate 4: canonical rerun (trusted host)
         │                     │        paired vs. current champion on a gate split

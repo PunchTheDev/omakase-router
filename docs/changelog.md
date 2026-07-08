@@ -3,9 +3,9 @@
 All resets (split rotations, pool bumps, router-pin bumps in OC-H) are
 announced here before the Monday 00:00 UTC reset window they land in.
 
-## 2026-07-08 — maintainer agent live (Peggy)
+## 2026-07-08 — maintainer agent live (Punch)
 
-- The outer loop is real: Peggy verifies sr25519 hotkey signatures + SN74
+- The outer loop is real: Punch verifies sr25519 hotkey signatures + SN74
   registration (Gate 1), walks locked-files/artifact gates, runs the canonical
   rerun, and enforces rate-limit / open-PR / credibility / banlist (not just
   config). Winning entries are ed25519-signed in the ledger.

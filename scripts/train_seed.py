@@ -2,8 +2,8 @@
 """Train the seed champion: a TinyRouter fit to solo-baseline labels on the dev split.
 
 This is the beatable starting point every miner improves on. Usage:
-    python scripts/train_seed.py --pool ../oc-eval/configs/pool.dev.json
-Requires the mock pool to be up (oc-eval mockpool --port 8100).
+    python scripts/train_seed.py --pool ../omakase-eval/configs/pool.dev.json
+Requires the mock pool to be up (omakase-eval mockpool --port 8100).
 """
 from __future__ import annotations
 
@@ -12,11 +12,11 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "oc-eval"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "omakase-eval"))
 
-from oc_eval import baselines as bl  # noqa: E402
-from oc_eval import routers, suites  # noqa: E402
-from oc_eval.workers import Pool  # noqa: E402
+from omakase_eval import baselines as bl  # noqa: E402
+from omakase_eval import routers, suites  # noqa: E402
+from omakase_eval.workers import Pool  # noqa: E402
 
 
 def main() -> int:

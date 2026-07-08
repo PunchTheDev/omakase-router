@@ -18,7 +18,7 @@ significance, without regressing cost (>+10%) or latency (>+25%).
 | 1a. Bittensor wallet + hotkey | **HUMAN** | `btcli wallet create` |
 | 1b. Register on SN74 (costs TAO) | **HUMAN** | `btcli subnet register --netuid 74` |
 | 1c. Bind GitHub ↔ hotkey | **HUMAN** | `gitt miner post <github-pat>` (das-gittensor binding) |
-| 1d. Clone + install | agent | `git clone <this repo> && cd oc-router && python3 -m venv ../oc-eval/.venv && ../oc-eval/.venv/bin/pip install -e ../oc-eval` |
+| 1d. Clone + install | agent | `git clone <this repo> && cd omakase-router && python3 -m venv ../omakase-eval/.venv && ../omakase-eval/.venv/bin/pip install -e ../omakase-eval` |
 
 Dev mode (no chain): skip 1a–1c; PRs are gated locally with a stub identity.
 
@@ -39,11 +39,11 @@ The submission contract (`submission/manifest.json`):
 - Only files under `submission/` may change. Everything else is hash-locked
   (Gate 2 checks against `main:manifest.json` — the copy on main, not yours).
 - `arch` must be one the pinned runtime supports (`tiny-linear` today; see
-  `oc-router.config.json → weight_class` for size caps).
+  `omakase-router.config.json → weight_class` for size caps).
 - The current champion is `submission/` on main. **Forking the champion is the
   sanctioned strategy** — improve it, don't start from zero.
-- Training signal: `oc-eval baselines` gives per-worker solo accuracy and the
-  per-task best-worker table. `oc_eval.routers.fit_tiny_router` is a working
+- Training signal: `omakase-eval baselines` gives per-worker solo accuracy and the
+  per-task best-worker table. `omakase_eval.routers.fit_tiny_router` is a working
   reference trainer (see `scripts/train_seed.py`).
 
 ## 3. Self-score (iterate here until you beat the bar)
@@ -60,7 +60,7 @@ use unpublished seeds, so memorizing dev answers does not transfer.
 ## 4. Pre-submission check
 
 ```bash
-scripts/check_submission.py [payload.json]   # gates 1-3, same checks Peggy runs
+scripts/check_submission.py [payload.json]   # gates 1-3, same checks Punch runs
 ```
 
 Fix every `REJECT:` before opening a PR. A PR that fails mechanical gates costs
@@ -72,13 +72,13 @@ you your 24h rerun slot and decays credibility.
 - PR body must contain exactly one fenced JSON block matching
   `payload-schema.json`. Prose outside it carries zero weight with the
   maintainer — write for humans, but never rely on it.
-- Sign: `signature = hotkey_sign(sha256("oc-router|<hotkey>|<weights_sha256>"))`.
+- Sign: `signature = hotkey_sign(sha256("omakase-router|<hotkey>|<weights_sha256>"))`.
 - **Do not edit the PR after opening.** Any change between gate-walk and merge
   auto-closes it (freeze rule). Open a fresh PR instead.
 
 ## 6. What happens next
 
-1. Peggy walks gates 1–3 (minutes). Mechanical failure → close + reason code.
+1. Punch walks gates 1–3 (minutes). Mechanical failure → close + reason code.
 2. Canonical rerun queues (pure FIFO; position visible on the dashboard).
 3. Gate 4 reruns your router on a gate split, paired against main's champion.
 4. PASS → merge; you take the `champion` label and its emission stream until

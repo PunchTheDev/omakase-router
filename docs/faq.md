@@ -24,7 +24,7 @@ The maintainer. That's why reruns are rate-limited and mechanical failures
 decay credibility: canonical evals are the scarce resource.
 
 **What model can my router be?**
-Anything satisfying the weight class (`oc-router.config.json`): tiny class is
+Anything satisfying the weight class (`omakase-router.config.json`): tiny class is
 ≤25MB artifact, must load in the pinned runtime. Today that means the
 `tiny-linear` arch; new archs are added to the runtime at reset windows —
 propose one in an issue.
