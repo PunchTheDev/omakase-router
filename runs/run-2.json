@@ -4,6 +4,7 @@
  "split": "dev",
  "seed": 1,
  "n_tasks": 120,
+ "mde": 0.1278,
  "verdict": {
   "passed": false,
   "reason": "accuracy gain not significant",
@@ -23,7 +24,7 @@
     "code_qa": 0.875
    },
    "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.3276429924881086
+   "latency_p50_ms": 0.2776500041363761
   },
   "baseline": {
    "accuracy": 0.9249999999999999,
@@ -33,11 +34,11 @@
     "code_qa": 0.875
    },
    "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.29394000011961907
+   "latency_p50_ms": 0.2762580115813762
   },
   "oracle_capture": 0.0
  },
- "transcript_sha256": "a00ae1f19c6683684d73e99ce6e0a4fff833e97e927b37948a8dc44e84e1919b",
+ "transcript_sha256": "5cedde3f1fb1a4d6cd4e02a3e2b0bc3e806ce26b27e794093d057a30b491cbbb",
  "pr": 2,
  "task_summary": [
   {
