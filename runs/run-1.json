@@ -7,7 +7,7 @@
  "mde": 0.1278,
  "verdict": {
   "passed": true,
-  "reason": "significant accuracy gain within cost/latency bands",
+  "reason": "significant accuracy gain within cost band",
   "comparison": {
    "p_value": 5.7220458984375e-06,
    "wins": 22,
@@ -24,7 +24,7 @@
     "code_qa": 0.875
    },
    "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.2762580115813762
+   "latency_p50_ms": 0.6961840117583051
   },
   "baseline": {
    "accuracy": 0.75,
@@ -38,7 +38,7 @@
   },
   "oracle_capture": 0.7241379310344824
  },
- "transcript_sha256": "3438f55c25024de4eaf32267658cc88dfad2ad0c02f8006cfaad977fa1c5b94f",
+ "transcript_sha256": "c0d36ffb2b0d63fc8e11a20d112042a8c74531c6fe0b221abc796e2f4182bd5b",
  "pr": 1,
  "task_summary": [
   {
