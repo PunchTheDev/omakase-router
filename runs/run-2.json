@@ -1,18 +1,19 @@
 {
+ "competition": "oc-router",
  "manifest_sha256": "3cb5250c8d28e3fbf5a71082445504f95bf9e90622478e3fd363d1b031309555",
  "split": "dev",
  "seed": 1,
  "n_tasks": 120,
  "verdict": {
-  "passed": true,
-  "reason": "significant accuracy gain within cost/latency bands",
+  "passed": false,
+  "reason": "accuracy gain not significant",
   "comparison": {
-   "p_value": 5.7220458984375e-06,
-   "wins": 22,
-   "losses": 1,
-   "delta": 0.175,
-   "ci_low": 0.10833333333333334,
-   "ci_high": 0.25
+   "p_value": 1.0,
+   "wins": 0,
+   "losses": 0,
+   "delta": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0
   },
   "candidate": {
    "accuracy": 0.9249999999999999,
@@ -22,22 +23,22 @@
     "code_qa": 0.875
    },
    "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.3094790008617565
+   "latency_p50_ms": 0.3276429924881086
   },
   "baseline": {
-   "accuracy": 0.75,
+   "accuracy": 0.9249999999999999,
    "per_suite": {
-    "reasoning": 0.75,
-    "math": 0.65,
-    "code_qa": 0.85
+    "reasoning": 0.975,
+    "math": 0.925,
+    "code_qa": 0.875
    },
-   "cost_per_task": 0.0370425,
-   "latency_p50_ms": 0.3025579935638234
+   "cost_per_task": 0.03682666666666667,
+   "latency_p50_ms": 0.29394000011961907
   },
-  "oracle_capture": 0.7241379310344824
+  "oracle_capture": 0.0
  },
- "mde": 0.1278,
- "transcript_sha256": "8f7d0f98cb85806b0224b4c3305627fd2c02098eb5fd56d7c5de7217126786dc",
+ "transcript_sha256": "a00ae1f19c6683684d73e99ce6e0a4fff833e97e927b37948a8dc44e84e1919b",
+ "pr": 2,
  "task_summary": [
   {
    "task_id": "dev-reasoning-0000",
