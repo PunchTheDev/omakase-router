@@ -1,10 +1,10 @@
 {
  "competition": "omakase-router",
- "manifest_sha256": "3cb5250c8d28e3fbf5a71082445504f95bf9e90622478e3fd363d1b031309555",
+ "manifest_sha256": "0c45ffc70e551f9adffa208e4dd4e7cf25d195c0f7f7a0294ff1162456a56986",
  "split": "dev",
  "seed": 1,
- "n_tasks": 120,
- "mde": 0.1278,
+ "n_tasks": 200,
+ "mde": 0.099,
  "verdict": {
   "passed": false,
   "reason": "accuracy gain not significant",
@@ -17,28 +17,32 @@
    "ci_high": 0.0
   },
   "candidate": {
-   "accuracy": 0.9249999999999999,
+   "accuracy": 0.9199999999999999,
    "per_suite": {
-    "reasoning": 0.975,
-    "math": 0.925,
-    "code_qa": 0.875
+    "reasoning": 1.0,
+    "math": 0.9,
+    "code_qa": 0.85,
+    "logic": 0.875,
+    "number_theory": 0.975
    },
-   "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.750316001358442
+   "cost_per_task": 0.036764,
+   "latency_p50_ms": 0.593643999309279
   },
   "baseline": {
-   "accuracy": 0.9249999999999999,
+   "accuracy": 0.9199999999999999,
    "per_suite": {
-    "reasoning": 0.975,
-    "math": 0.925,
-    "code_qa": 0.875
+    "reasoning": 1.0,
+    "math": 0.9,
+    "code_qa": 0.85,
+    "logic": 0.875,
+    "number_theory": 0.975
    },
-   "cost_per_task": 0.03682666666666667,
-   "latency_p50_ms": 0.7453159923898056
+   "cost_per_task": 0.036764,
+   "latency_p50_ms": 0.7489749987144023
   },
   "oracle_capture": 0.0
  },
- "transcript_sha256": "88eea6a753f7b004d3d8cf3809f6faf5ba62dafd2fa2cfd6376b657b5515bba2",
+ "transcript_sha256": "bc422aa79a126d0eca0a9481abaf9f875e0627e44012e666d08aca2944a8dd61",
  "pr": 2,
  "task_summary": [
   {
@@ -102,7 +106,7 @@
    "suite": "reasoning",
    "correct": true,
    "tokens": 41,
-   "cost": 0.041,
+   "cost": 0.0369,
    "n_steps": 1
   },
   {
@@ -110,7 +114,7 @@
    "suite": "reasoning",
    "correct": true,
    "tokens": 41,
-   "cost": 0.041,
+   "cost": 0.0369,
    "n_steps": 1
   },
   {
@@ -260,9 +264,9 @@
   {
    "task_id": "dev-reasoning-0027",
    "suite": "reasoning",
-   "correct": false,
+   "correct": true,
    "tokens": 41,
-   "cost": 0.041,
+   "cost": 0.0369,
    "n_steps": 1
   },
   {
@@ -380,9 +384,9 @@
   {
    "task_id": "dev-math-0002",
    "suite": "math",
-   "correct": true,
-   "tokens": 41,
-   "cost": 0.0369,
+   "correct": false,
+   "tokens": 42,
+   "cost": 0.0336,
    "n_steps": 1
   },
   {
@@ -436,9 +440,9 @@
   {
    "task_id": "dev-math-0009",
    "suite": "math",
-   "correct": true,
-   "tokens": 41,
-   "cost": 0.0369,
+   "correct": false,
+   "tokens": 42,
+   "cost": 0.0336,
    "n_steps": 1
   },
   {
@@ -548,9 +552,9 @@
   {
    "task_id": "dev-math-0023",
    "suite": "math",
-   "correct": false,
+   "correct": true,
    "tokens": 41,
-   "cost": 0.0328,
+   "cost": 0.0041,
    "n_steps": 1
   },
   {
@@ -661,8 +665,8 @@
    "task_id": "dev-math-0037",
    "suite": "math",
    "correct": false,
-   "tokens": 41,
-   "cost": 0.0369,
+   "tokens": 42,
+   "cost": 0.0336,
    "n_steps": 1
   },
   {
@@ -924,9 +928,9 @@
   {
    "task_id": "dev-code_qa-0030",
    "suite": "code_qa",
-   "correct": true,
+   "correct": false,
    "tokens": 41,
-   "cost": 0.0287,
+   "cost": 0.0369,
    "n_steps": 1
   },
   {
@@ -999,6 +1003,646 @@
    "correct": true,
    "tokens": 41,
    "cost": 0.0369,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0000",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0001",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0002",
+   "suite": "logic",
+   "correct": false,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0003",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0004",
+   "suite": "logic",
+   "correct": false,
+   "tokens": 42,
+   "cost": 0.042,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0005",
+   "suite": "logic",
+   "correct": false,
+   "tokens": 42,
+   "cost": 0.042,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0006",
+   "suite": "logic",
+   "correct": false,
+   "tokens": 42,
+   "cost": 0.042,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0007",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0008",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0009",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0010",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0011",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0012",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0013",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0014",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0015",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0016",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0017",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0018",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0019",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0020",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0021",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0022",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0023",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0024",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0025",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0026",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0027",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0028",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0029",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0030",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0031",
+   "suite": "logic",
+   "correct": false,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0032",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0033",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0034",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0035",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0036",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0037",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0038",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-logic-0039",
+   "suite": "logic",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0000",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0001",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0002",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0003",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0004",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.041,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0005",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0006",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0007",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0008",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0009",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0010",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0011",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0369,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0012",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0013",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0014",
+   "suite": "number_theory",
+   "correct": false,
+   "tokens": 42,
+   "cost": 0.0336,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0015",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0016",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0017",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0018",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0019",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0020",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0021",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0022",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0023",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0369,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0024",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0025",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0026",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0027",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0028",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0029",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0030",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0369,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0031",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0032",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0033",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0034",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0035",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0036",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0037",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0038",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
+   "n_steps": 1
+  },
+  {
+   "task_id": "dev-number_theory-0039",
+   "suite": "number_theory",
+   "correct": true,
+   "tokens": 41,
+   "cost": 0.0328,
    "n_steps": 1
   }
  ]
