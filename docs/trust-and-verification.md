@@ -1,51 +1,67 @@
 # Trust & verification
 
-Every score on the dashboard links to a run receipt. This page says exactly
-what a receipt proves, what it assumes, and how to check it yourself.
+The trust model is deliberately simple and honest: **reproducibility from source
+plus signed, published runtime logs.** No hardware attestation, no sealed
+enclaves — the maintainer runs every evaluation on a trusted host and makes it
+independently checkable. Every score on the dashboard links to a receipt that
+proves what ran and lets you re-run it.
 
-## What is cryptographically bound
+## What every receipt gives you
 
-| Property | Mechanism |
-|---|---|
-| What code + model scored you | digest-pinned runtime image (TDX MRTD in production) |
-| Your exact artifact was evaluated | `weights_sha256` bound into the run blob |
-| No external model calls during eval | egress allow-list = pool endpoints only (attested in TDX mode) |
-| History wasn't rewritten | frontier log: append-only hash chain; any edit breaks every later entry |
-| Task order / options weren't chosen to favor anyone | shuffle seed = PR HEAD SHA (unknowable pre-submission) |
+| Property | Mechanism | Verify it yourself |
+|---|---|---|
+| The run wasn't altered | maintainer **ed25519 signature** over the ledger entry's chain hash | recompute with the published pubkey (`oc-maintainer/state/maintainer.pub.json`) |
+| History wasn't rewritten | frontier log: append-only, **hash-chained**; each entry commits to the last | `oc-eval verify-log runs/frontier.jsonl` |
+| What the router did on every problem | the **per-task transcript** (each worker call, role, response, tokens, grading) is published and content-addressed | open `/runs/<sha>/tasks` or `GET /api/runs/<sha>/tasks` |
+| The score is real | re-run from source: same split, same seed, same pool ⇒ same verdict | the reproduce command on each receipt |
+| Only your artifact was scored | `manifest_sha256` / `weights_sha256` bound into the run + ledger entry | compare to your submission |
+| Task order didn't favor anyone | options shuffled per-run by a seed you can't predict | inspect the transcript |
 
-## What is honestly assumed (read this)
+## The honest assumptions (read this)
 
-1. **The worker pool serves what it claims.** Worker responses come from our
-   pinned vLLM cluster, *outside* the sealed enclave. The serving config
-   (model shas, sampling params) is hashed into every run blob and the pool is
-   health-gated before any scoring run — but you are trusting the operator not
-   to bias serving. Roadmap: attested serving. Until then this is the largest
-   trust assumption in the system, and we'd rather name it than hide it.
-2. **Trust mode is per-run.** Receipts state `tdx` (hardware quote, verify
-   against Intel collateral) or `local-trusted` (maintainer-run, reproducible
-   from source — the sparkinfer posture). Dev mode is always `local-trusted`.
+1. **The maintainer runs evaluations honestly on a trusted host.** There is no
+   TEE forcing this — trust rests on reproducibility (anyone with the pool can
+   re-run and get the same verdict) and on the signed, published transcripts
+   (any divergence is visible problem-by-problem). This is the same posture
+   sparkinfer runs on, stated plainly.
+2. **The worker pool serves what it claims.** Worker responses come from the
+   pinned pool. The serving config is recorded; a degraded pool health-gates
+   the queue rather than scoring. In dev the pool is a deterministic mock (a
+   trusted component — see `oc-eval/oc_eval/mockpool.py`); production points at
+   pinned vLLM endpoints over an egress allow-list.
 
 ## Verify a run yourself
 
 ```bash
-oc-eval verify-log runs/frontier.jsonl                  # chain integrity
-# reproduce any dev-mode run bit-for-bit:
+# 1. the ledger chain is intact
+oc-eval verify-log oc-router/runs/frontier.jsonl
+
+# 2. the maintainer signature on any entry checks out (ed25519 over the entry sha)
+#    — the dashboard does this live; the pubkey is published in the maintainer state
+
+# 3. reproduce the verdict bit-for-bit
 oc-eval mockpool --port 8100 &
 oc-eval baselines --pool ../oc-eval/configs/pool.dev.json --out /tmp/base.json
 oc-eval run --manifest submission/manifest.json --pool ../oc-eval/configs/pool.dev.json \
         --baselines /tmp/base.json --split dev --seed 1
+
+# 4. audit any problem: open /runs/<transcript_sha>/tasks/<task_id> on the dashboard
 ```
 
-Same split, same seed, same image ⇒ same verdict. If you can't reproduce a
-published number, open an issue citing the run's `seq` in the frontier log —
-one contested re-run per receipt is honored, and the re-run is published
-whichever way it lands.
+If you can't reproduce a published number, open an issue citing the run's `seq`
+in the frontier log — one contested re-run per receipt is honored, and the
+re-run is published whichever way it lands.
 
-## Why cheating is negative-EV, with numbers
+## Why cheating is negative-EV
 
-Variance farming: at α=0.05 a no-effect submission passes by luck once per ~20
-attempts; at 1 rerun/24h with credibility decay per failure, the banlist
-arrives first. Answer memorization: gate seeds are unpublished and rotated,
-and option order is reshuffled per run — a memorized dev split scores at
-chance on the letters it memorized. Phoning a frontier model: the eval
-environment can only reach the pool endpoints.
+- **Identity is real.** Peggy verifies the sr25519 hotkey signature over your
+  payload and that the hotkey is registered and GitHub-bound before any compute
+  runs (Gate 1). A forged signature or unregistered hotkey is closed for free.
+- **King of the hill.** Your router must beat the *current champion* with paired
+  significance (McNemar), not just the best single worker — copying the champion
+  earns nothing.
+- **Variance farming loses.** 1 rerun / hotkey / 24h + credibility decay: a
+  no-effect resubmitter hits the banlist long before a lucky pass. Losing a fair
+  race barely dents credibility; a forged signature decays it fast.
+- **Memorization doesn't transfer.** Gate splits use unpublished seeds and
+  per-run option shuffling; production adds fresh-harvested tasks.

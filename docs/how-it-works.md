@@ -11,7 +11,7 @@ cost. OC-R is a permissionless competition to find that router.
         │                     │
         │              Peggy gates 1-3 (identity, locked files, static checks)
         │                     │
-        │              FIFO queue ──► Gate 4: canonical rerun, sealed compute
+        │              FIFO queue ──► Gate 4: canonical rerun (trusted host)
         │                     │        paired vs. current champion on a gate split
         │                     │
         │        PASS: merge ──► champion label ──► SN74 emissions stream
@@ -30,8 +30,9 @@ of the pool's theoretical routing headroom the champion extracts — is the
 health metric of the whole competition; when it plateaus near 1.0, the pool or
 weight class gets refreshed.
 
-**Why you can't cheat (short version).** Identity is chain-bound, the runtime
-image is digest-pinned, gate splits use unpublished seeds, options are
-shuffled per-run, egress is allow-listed to the pool endpoints, results are
-hash-chained in the frontier log, and every number links to a rerunnable
-receipt. Full detail: [trust-and-verification](trust-and-verification.md).
+**Why you can't cheat (short version).** Your hotkey signature is verified and
+your identity chain-checked before any compute runs, you must beat the *current
+champion* (not just the best worker), gate splits use unpublished seeds, options
+are shuffled per-run, results are hash-chained and maintainer-signed in the
+frontier log, and every run publishes a full per-task transcript you can audit
+problem-by-problem. Full detail: [trust-and-verification](trust-and-verification.md).

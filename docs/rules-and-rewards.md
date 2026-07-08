@@ -36,7 +36,7 @@ champion, not lottery submissions.
 
 ## Resets
 
-Gate-split rotations, pool version bumps, and runtime image bumps all land in
+Gate-split rotations, pool version bumps, and router-pin bumps all land in
 the **Monday 00:00 UTC reset window**, announced in [changelog](changelog.md)
-beforehand. In-flight submissions caught by a reset re-attest against the new
+beforehand. In-flight submissions caught by a reset re-run against the new
 baseline, keeping their queue position.

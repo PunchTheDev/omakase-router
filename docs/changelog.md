@@ -1,7 +1,20 @@
 # Changelog / resets
 
-All resets (split rotations, pool bumps, image bumps, router-pin bumps in
-OC-H) are announced here before the Monday 00:00 UTC reset window they land in.
+All resets (split rotations, pool bumps, router-pin bumps in OC-H) are
+announced here before the Monday 00:00 UTC reset window they land in.
+
+## 2026-07-08 — maintainer agent live (Peggy)
+
+- The outer loop is real: Peggy verifies sr25519 hotkey signatures + SN74
+  registration (Gate 1), walks locked-files/artifact gates, runs the canonical
+  rerun, and enforces rate-limit / open-PR / credibility / banlist (not just
+  config). Winning entries are ed25519-signed in the ledger.
+- King-of-the-hill made exact: OC-R now requires beating the **current
+  champion** with paired significance, not just the best single worker.
+- Every run publishes a full **per-task transcript** (audit any problem at
+  `/runs/<sha>/tasks`), and a read API (`/api/runs/...`) exposes it.
+- Weights storage: real Hippius S3 client + encrypt-until-merge (activates with
+  console credentials); local content-addressed store for dev.
 
 ## 2026-07-07 — pool retune (pool.dev@v2) + OC-H contract v2
 
@@ -20,4 +33,4 @@ OC-H) are announced here before the Monday 00:00 UTC reset window they land in.
 - Suites: reasoning / math / code_qa, 40 tasks each, procedural.
 - Seed champion: TinyRouter trained on dev-split solo baselines
   (`scripts/train_seed.py`) — deliberately beatable.
-- Trust mode: `local-trusted` (dev). TDX path lands with the production pool.
+- Trust mode: reproduce-from-source + maintainer-signed published transcripts (no TEE, by design).
