@@ -1,5 +1,6 @@
 {
  "locked": {
+  ".github/workflows/self-check.yml": "eb9c8de49cc071def28570af723743a06c18ef8ecfec4cc2874a89c02c7fe17f",
   ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
   "AGENTS.md": "bcaf5d9526d60434a2e575f135f91d408a4fe086833b87f637b1ecb8383cf27a",
   "CLAUDE.md": "bcaf5d9526d60434a2e575f135f91d408a4fe086833b87f637b1ecb8383cf27a",
