@@ -23,11 +23,37 @@ proves what ran and lets you re-run it.
    TEE forcing this — trust rests on reproducibility (anyone with the pool can
    re-run and get the same verdict) and on the signed, published transcripts
    (any divergence is visible problem-by-problem).
+3. **A live gate round is sealed, then opened.** The gate seed is secret while
+   the round runs (it *is* the answer key: the generators are public), so gate
+   seeds and gate transcripts are never published mid-round. The receipt still
+   commits to the transcript's hash, so nothing can be rewritten after the fact.
+   When the round retires, the seed is published and every receipt in it becomes
+   independently reproducible. Verify a live round by its chain and signature;
+   verify a retired round by re-running it.
 2. **The worker pool serves what it claims.** Worker responses come from the
    pinned pool. The serving config is recorded; a degraded pool health-gates
    the queue rather than scoring. In dev the pool is a deterministic mock (a
    trusted component — see `omakase-eval/omakase_eval/mockpool.py`); production points at
    pinned vLLM endpoints over an egress allow-list.
+
+## Why a Harness can't cheat
+
+A Harness submission is arbitrary code, so it is not asked to behave — it is put
+somewhere it *cannot* misbehave. `harness/` runs in an isolated child process
+(`omakase_eval/sandbox.py`) whose only powers are two RPCs back to the scorer:
+
+| Attack | Why it fails |
+|---|---|
+| import the answers and self-grade | `omakase_eval.suites` is not on the child's `sys.path` — `ModuleNotFoundError`. Reflection finds nothing to reflect into. |
+| regenerate the hidden tasks | the gate seed is never sent to the child, and never written to a published blob or transcript |
+| under-report cost / tokens | the parent meters the real pool calls; the child's claims are not read |
+| exceed the budget | enforced in the parent on measured turns and tokens |
+| exfiltrate the signing key | the child's environment is scrubbed; gate rounds run with no network, a read-only filesystem, and as `nobody`. Punch refuses to score a private split otherwise. |
+| spoof a verdict on stdout | the child's stdout is `/dev/null`; the protocol rides private file descriptors |
+| hang or crash the eval | wall-clock timeout per task; the child is killed and replaced, forfeiting that one task |
+
+The `banned-primitive` static check runs first, but it is a cheap pre-filter, not
+the boundary. A regex never was containment; the process boundary is.
 
 ## Verify a run yourself
 
