@@ -22,8 +22,7 @@ proves what ran and lets you re-run it.
 1. **The maintainer runs evaluations honestly on a trusted host.** There is no
    TEE forcing this — trust rests on reproducibility (anyone with the pool can
    re-run and get the same verdict) and on the signed, published transcripts
-   (any divergence is visible problem-by-problem). This is the same posture
-   sparkinfer runs on, stated plainly.
+   (any divergence is visible problem-by-problem).
 2. **The worker pool serves what it claims.** Worker responses come from the
    pinned pool. The serving config is recorded; a degraded pool health-gates
    the queue rather than scoring. In dev the pool is a deterministic mock (a

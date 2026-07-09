@@ -9,6 +9,9 @@
   champion change.
 - A merged PR holding no label earns **nothing** (`default_label_multiplier: 0`).
   This competition pays for holding the frontier, not for having once won.
+- The **Harness competition uses the identical rule**: its `champion` label is
+  held by the last merged harness PR — any paired-significant in-band win takes
+  it, regardless of delta size — until the next merge takes it.
 
 ## The bar
 

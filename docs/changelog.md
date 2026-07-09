@@ -25,7 +25,9 @@ announced here before the Monday 00:00 UTC reset window they land in.
   cost metering are central, budgets enforced by the pool wrapper. Honest
   harnesses unaffected (main rescored unchanged at 0.933).
 - Harness gate split widened to 450 tasks (MDE ↓); champion-v2 router pinned.
-- First Harness merge: hedge-aware retry, Δ+3.6pp, p=3.1e-05 → major-delta.
+- Harness reward simplified to one rule, mirroring Router: any paired-significant
+  in-band win takes the `champion` crown, regardless of delta size.
+- First Harness merge: hedge-aware retry, Δ+3.6 points, p=3.1e-05 → champion.
 
 ## 2026-07-07 — competition genesis
 
