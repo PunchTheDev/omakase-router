@@ -55,6 +55,26 @@ somewhere it *cannot* misbehave. `harness/` runs in an isolated child process
 The `banned-primitive` static check runs first, but it is a cheap pre-filter, not
 the boundary. A regex never was containment; the process boundary is.
 
+### Integrity is checked against the maintainer, never the submission
+
+Every check authenticates against data the maintainer holds, not data the miner
+ships:
+
+- **Locked files** are verified against the maintainer's own `manifest.json`, not
+  the PR's. Editing a locked file and updating your own manifest hash to match no
+  longer passes — the canonical hash comes from the maintainer's checkout.
+- **The grader runs from the maintainer's tree.** The trusted `eval_adapter.py`
+  scores the PR's `harness/` directory; the PR's copy of the adapter is never
+  executed, so it can't declare itself the winner or read the seed.
+- **Baselines and the incumbent** are read from the maintainer's checkout, and
+  each carries a seed-fingerprint + pool-version + suite-version stamp that must
+  match the round. A baseline shipped in the PR's `runs/` is ignored; an unstamped
+  or mismatched one is refused.
+- **Answers are graded exactly** — the final answer line must *be* the answer, not
+  merely contain it, so returning a spray of every candidate answer wins nothing.
+- The PR is materialized in an isolated worktree, so its files never overwrite the
+  tree these checks read from.
+
 ## Verify a run yourself
 
 ```bash

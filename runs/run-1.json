@@ -25,7 +25,7 @@
     "number_theory": 0.975
    },
    "cost_per_task": 0.036764,
-   "latency_p50_ms": 0.27705200045602396
+   "latency_p50_ms": 0.7086580008035526
   },
   "baseline": {
    "accuracy": 0.765,
@@ -41,7 +41,7 @@
   },
   "oracle_capture": 0.6739130434782605
  },
- "transcript_sha256": "0288ef3d19d2d683ad5aa8bd8b8adb15547c452f2e9eb50b7078db81253bfa01",
+ "transcript_sha256": "e7e1b348d0eefb1650f6c7a489248f7f50fc2b56610ba08fad576b638f2a0ec8",
  "seed": 1,
  "pr": 1,
  "task_summary": [
